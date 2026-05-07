@@ -1,0 +1,91 @@
+{
+  "manifest_version": 3,
+  "name": "Trading Co-Pilot",
+  "version": "1.0.0",
+  "description": "AI-powered trading assistant with live signals, news alerts, and multi-broker execution",
+  "permissions": [
+    "activeTab",
+    "tabs",
+    "storage",
+    "sidePanel",
+    "scripting",
+    "notifications",
+    "alarms"
+  ],
+  "host_permissions": [
+    "https://tradingview.com/*",
+    "https://www.tradingview.com/*",
+    "https://robinhood.com/*",
+    "https://www.robinhood.com/*",
+    "https://coinbase.com/*",
+    "https://www.coinbase.com/*",
+    "https://tdameritrade.com/*",
+    "https://www.tdameritrade.com/*",
+    "https://webull.com/*",
+    "https://www.webull.com/*",
+    "https://interactivebrokers.com/*",
+    "https://www.interactivebrokers.com/*",
+    "https://alpaca.markets/*",
+    "https://paper-api.alpaca.markets/*",
+    "https://api.alpaca.markets/*",
+    "https://data.alpaca.markets/*",
+    "https://api.polygon.io/*",
+    "https://finance.yahoo.com/*",
+    "https://finnhub.io/*",
+    "https://api.coingecko.com/*"
+  ],
+  "background": {
+    "service_worker": "background.js",
+    "type": "module"
+  },
+  "side_panel": {
+    "default_path": "sidepanel.html"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://www.tradingview.com/*",
+        "https://tradingview.com/*"
+      ],
+      "js": ["content-tradingview.js"],
+      "run_at": "document_idle"
+    },
+    {
+      "matches": [
+        "https://robinhood.com/*",
+        "https://www.robinhood.com/*"
+      ],
+      "js": ["content-robinhood.js"],
+      "run_at": "document_idle"
+    },
+    {
+      "matches": [
+        "https://coinbase.com/*",
+        "https://www.coinbase.com/*"
+      ],
+      "js": ["content-coinbase.js"],
+      "run_at": "document_idle"
+    },
+    {
+      "matches": [
+        "https://www.webull.com/*",
+        "https://webull.com/*"
+      ],
+      "js": ["content-webull.js"],
+      "run_at": "document_idle"
+    }
+  ],
+  "action": {
+    "default_title": "Trading Co-Pilot",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    }
+  },
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  }
+}

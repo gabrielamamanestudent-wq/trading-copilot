@@ -1,0 +1,31 @@
+# Dependencies
+node_modules/
+.npm/
+
+# Build output
+extension/dist/
+backend/dist/
+
+# Environment
+.env
+.env.local
+.env.*.local
+!.env.example
+!backend/.env.example
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+*.swp
+
+# Logs
+*.log
+npm-debug.log*
+
+# Supabase
+supabase/.branches/
+supabase/.temp/
